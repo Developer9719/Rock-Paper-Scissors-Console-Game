@@ -9,13 +9,17 @@
 <body>
     <header>
         <h1>Rock Paper Scissors Console Game</h1>
-        <button onclick="launchGame()">Play Game</button>
-        <button onclick="restartGame()">Restart Game</button>
     </header>
-    <main>
-        <h2>Games Played: <p id="games-played"></p></h2>
-        <h2>Games Won: <p id="games-won"></p></h2>
-        <h2>Games Lost: <p id="games-lost"></p></h2>
+    <main class="gameControls">
+        <div class="item controlButtons">
+            <button onclick="launchGame()">Play Game</button>
+            <button onclick="restartGame()">Restart Game</button>
+        </div>
+        <div class="item">
+            <h2>Games Played: <p id="games-played"></p></h2>
+            <h2>Games Won: <p id="games-won"></p></h2>
+            <h2>Games Lost: <p id="games-lost"></p></h2>
+        </div>
     </main>
     <footer></footer>
 </body>

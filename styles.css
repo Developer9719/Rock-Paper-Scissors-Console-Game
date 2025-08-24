@@ -3,6 +3,25 @@ header h1 {
 }
 
 button {
-    font-size: large;
+    font-size: 30pt;
     padding: 2%;
+    margin-bottom: 2%;
+}
+
+.gameControls {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.controlButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+}
+
+.item {
+    flex-basis: fit-content;
+    padding: 5%;
 }
