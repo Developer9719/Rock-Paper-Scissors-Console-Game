@@ -1,5 +1,5 @@
-let humanScore;
-let computerScore;
+let humanScore = 0;
+let computerScore = 0;
 let roundCount = 1;
 
 function getComputerChoice() {
@@ -21,19 +21,10 @@ function playRound() {
     const computerChoice = getComputerChoice();
     const userChoice = getUserChoice();
 
-    if(roundCount == 6) {
-        if(humanScore > computerScore) {
-            alert("Congratulations! You won the game!");
-        } else if(humanScore < computerScore) {
-            alert("Sorry! You lost the game.");
-        } else {
-            alert("It's a tie game!");
-        }
-        resetGame();
-    }
-
     if (userChoice === computerChoice) {
         alert(`It's a tie! Both chose ${userChoice}.`);
+        humanScore++;
+        computerScore++;
     } else if (
         (userChoice === 'rock' && computerChoice === 'scissors') ||
         (userChoice === 'paper' && computerChoice === 'rock') ||
@@ -46,18 +37,29 @@ function playRound() {
         computerScore++;
     }
 
-    updateScore();
     roundCount++;
-}
-
-function updateScore() {
-    const scoreBoard = document.getElementById('score-board');
-    scoreBoard.innerHTML = `Human: ${humanScore} - Computer: ${computerScore}`;
+    launchGame();
 }
 
 function resetGame() {
     humanScore = 0;
     computerScore = 0;
     roundCount = 1;
-    updateScore();
 }
+
+function launchGame() {
+    if(roundCount <= 5) {
+        playRound()
+    } else {
+        if (humanScore > computerScore) {
+            alert("Congratulations! You won the game!");
+        } else if (humanScore < computerScore) {
+            alert("Sorry! You lost the game.");
+        } else {
+            alert("It's a tie game!");
+        }
+        resetGame();
+    }
+}
+
+launchGame();
