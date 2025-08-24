@@ -1,6 +1,18 @@
+let played = 0;
+let won = 0;
+let lost = 0;
+
 let humanScore = 0;
 let computerScore = 0;
 let roundCount = 1;
+
+const gamesWon = document.getElementById("games-won");
+const gamesPlayed = document.getElementById("games-played");
+const gamesLost = document.getElementById("games-lost");
+
+gamesPlayed.textContent = played.toString();
+gamesWon.textContent = won.toString();
+gamesLost.textContent = lost.toString();
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -53,11 +65,32 @@ function launchGame() {
     } else {
         if (humanScore > computerScore) {
             alert("Congratulations! You won the game!");
+            won++;
         } else if (humanScore < computerScore) {
             alert("Sorry! You lost the game.");
+            lost++;
         } else {
             alert("It's a tie game!");
+            won++;
+            lost++;
         }
-        resetGame();
+        played++;
+        updateUISpecs();
     }
+}
+
+function updateUISpecs() {
+    gamesPlayed.textContent = played.toString();
+    gamesWon.textContent = won.toString();
+    gamesLost.textContent = lost.toString();
+    resetGame();
+}
+
+function restartGame() {
+    played = 0;
+    won = 0;
+    lost = 0;
+    gamesPlayed.textContent = played.toString();
+    gamesWon.textContent = won.toString();
+    gamesLost.textContent = lost.toString();
 }
