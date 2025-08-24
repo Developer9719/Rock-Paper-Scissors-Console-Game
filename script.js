@@ -61,5 +61,3 @@ function launchGame() {
         resetGame();
     }
 }
-
-launchGame();
